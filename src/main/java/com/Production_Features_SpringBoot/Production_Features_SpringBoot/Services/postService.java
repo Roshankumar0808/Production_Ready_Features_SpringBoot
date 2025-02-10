@@ -10,4 +10,6 @@ public interface postService  {
     postDto createNewPost(postDto inputPost);
 
     postDto getPostById(Long postId);
+
+    postDto updateDetails(postDto input, Long postId);
 }
