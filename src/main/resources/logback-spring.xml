@@ -1,0 +1,35 @@
+<!--<configuration>-->
+<!--    <property name="LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss} %-5level %c{1} - %msg%n"/>-->
+<!--    <property name="LOG_PATH" value="logs"/>-->
+<!--    <appender name="ROLLING_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+<!--        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
+<!--            <fileNamePattern>logs/application.%d{yyyy-MM-dd}.log</fileNamePattern>-->
+
+<!--            &lt;!&ndash;            <fileNamePattern>${LOG_PATH}/application.%d{yyyy-MM-dd}.%i.log</fileNamePattern>&ndash;&gt;-->
+<!--            <maxHistory>30</maxHistory>-->
+<!--            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">-->
+<!--                <maxFileSize>10MB</maxFileSize>-->
+<!--            </timeBasedFileNamingAndTriggeringPolicy>-->
+<!--        </rollingPolicy>-->
+<!--        <encoder>-->
+<!--            <pattern>${LOG_PATTERN}</pattern>-->
+<!--        </encoder>-->
+<!--    </appender>-->
+<!--    <root level="debug">-->
+<!--        <appender-ref ref="ROLLING_FILE"/>-->
+<!--    </root>-->
+<!--</configuration>-->
+<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>logs/app.log</file>
+
+    <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+        <fileNamePattern>logs/app-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+        <maxFileSize>10MB</maxFileSize>
+        <maxHistory>30</maxHistory>
+        <totalSizeCap>3GB</totalSizeCap>
+    </rollingPolicy>
+
+    <encoder>
+        <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+    </encoder>
+</appender>
