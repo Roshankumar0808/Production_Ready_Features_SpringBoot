@@ -89,7 +89,7 @@ public class EmployeeClientImpl implements EmployeeClient {
            return employeeDtoAPIresponse.getBody().getData();
         }
         catch (Exception e){
-            log.error("Exception occured in createEmployee",e);
+            log.error("Exception occured in post Call Employee",e);
             throw new RuntimeException(e);
         }
     }
